@@ -47,7 +47,7 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
    
 4. Train the models (optional - pre-trained models included):
    ```bash
-   cd towers-of-hanoi-ai
+   cd towers_of_hanoi
    python train_simple.py
    ```
 
@@ -55,7 +55,7 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
 
 Start the Flask development server:
 ```bash
-cd towers-of-hanoi-ai
+cd towers_of_hanoi
 python main.py
 ```
 
