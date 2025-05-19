@@ -32,7 +32,6 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/towers-of-hanoi-ai.git
-   cd towers-of-hanoi-ai
    ```
 
 2. Create and activate a virtual environment:
@@ -45,9 +44,10 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
    ```bash
    pip install -r requirements.txt
    ```
-
+   
 4. Train the models (optional - pre-trained models included):
    ```bash
+   cd towers-of-hanoi-ai
    python train_simple.py
    ```
 
@@ -55,6 +55,7 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
 
 Start the Flask development server:
 ```bash
+cd towers-of-hanoi-ai
 python main.py
 ```
 
