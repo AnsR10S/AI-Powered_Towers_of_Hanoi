@@ -5,6 +5,9 @@ let gameState = {
     moves: 0
 };
 
+let isSolving = false;
+let solutionTimeout = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     initGame();
     
@@ -40,6 +43,8 @@ function renderBoard() {
 }
 
 function handlePoleClick(event) {
+    if (isSolving) return; // Don't allow moves while solving
+    
     const poleIndex = parseInt(event.currentTarget.dataset.pole);
     
     if (gameState.selectedPole === null) {
@@ -82,6 +87,8 @@ function moveDisk(fromPole, toPole) {
             
             if (data.is_solved) {
                 alert(`Congratulations! You solved it in ${gameState.moves} moves!`);
+                if (isSolving) {
+                    stopSolving();
             }
         } else {
             document.getElementById('message').textContent = 'Invalid move!';
@@ -93,6 +100,10 @@ function moveDisk(fromPole, toPole) {
 }
 
 function newGame() {
+    if (isSolving) {
+        stopSolving();
+    }
+    
     const numDisks = parseInt(document.getElementById('disk-count').value);
     
     fetch('/new_game', {
@@ -115,6 +126,8 @@ function newGame() {
 }
 
 function getHint() {
+    if (isSolving) return;
+    
     fetch('/hint', {
         method: 'POST',
         headers: {
@@ -138,6 +151,14 @@ function getHint() {
 }
 
 function solveGame() {
+    if (isSolving) {
+        stopSolving();
+        return;
+    }
+    
+    isSolving = true;
+    document.getElementById('solve').textContent = 'Stop';
+    
     fetch('/solve', {
         method: 'POST',
         headers: {
@@ -154,8 +175,17 @@ function solveGame() {
     });
 }
 
+function stopSolving() {
+    isSolving = false;
+    clearTimeout(solutionTimeout);
+    document.getElementById('solve').textContent = 'Solve';
+}
+
 function animateSolution(solution) {
-    if (solution.length === 0) return;
+    if (!isSolving || solution.length === 0) {
+        stopSolving();
+        return;
+    }
     
     const [fromPole, toPole] = solution[0];
     moveDisk(fromPole, toPole);
