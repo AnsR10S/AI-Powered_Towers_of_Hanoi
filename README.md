@@ -31,7 +31,7 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/towers-of-hanoi-ai.git
+   git clone https://github.com/AnsR10S/AI-Powered_Towers_of_Hanoi.git
    ```
 
 2. Create and activate a virtual environment:
