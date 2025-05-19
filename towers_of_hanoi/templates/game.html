@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Towers of Hanoi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Towers of Hanoi</h1>
+        
+        <div class="controls">
+            <label for="disk-count">Disks:</label>
+            <select id="disk-count">
+                {% for n in range(3, 9) %}
+                <option value="{{ n }}">{{ n }}</option>
+                {% endfor %}
+            </select>
+            <button id="new-game">New Game</button>
+            <button id="hint">Hint</button>
+            <button id="solve">Solve</button>
+        </div>
+        
+        <div class="board">
+            <div class="pole" data-pole="0"></div>
+            <div class="pole" data-pole="1"></div>
+            <div class="pole" data-pole="2"></div>
+        </div>
+        
+        <div class="status">
+            Moves: <span id="move-count">0</span>
+            <span id="message"></span>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
