@@ -32,18 +32,18 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
    git clone https://github.com/AnsR10S/AI-Powered_Towers_of_Hanoi.git
    ```
 
-2. Create and activate a virtual environment:
+2. Create and activate a virtual environment (make sure you're using Python 3.10.11 for compatibility with TensorFlow and other dependencies):
    ```bash
-   python -m venv venv
+   python3.10 -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. Install dependencies:
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
    
-4. Train the models (optional - pre-trained models included):
+5. Train the models (optional - pre-trained models included):
    ```bash
    cd towers_of_hanoi
    python train_simple.py
@@ -88,6 +88,8 @@ Edit `config.py` to customize:
 - Animation settings
 
 ## Training Your Own Models
+
+⚠️ Note: The provided models were trained only on puzzles with 3 disks, which limits their generalization to more complex states. While the AI is functional, its accuracy in predicting optimal moves is relatively low.
 
 1. Generate training data:
    ```python
