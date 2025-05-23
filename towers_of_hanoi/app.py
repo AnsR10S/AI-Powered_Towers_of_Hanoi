@@ -53,6 +53,11 @@ def hint():
     game.poles = data['poles']
     solver = HanoiSolver(data['num_disks'])
     move = solver.suggest_move(game.poles)
+    
+    if move:
+        # Convert numpy.int64 to regular Python int
+        move = [int(move[0]), int(move[1])]
+    
     return jsonify({'move': move})
 
 if __name__ == '__main__':

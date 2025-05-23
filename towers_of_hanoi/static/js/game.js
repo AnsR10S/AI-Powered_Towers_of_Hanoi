@@ -89,6 +89,7 @@ function moveDisk(fromPole, toPole) {
                 alert(`Congratulations! You solved it in ${gameState.moves} moves!`);
                 if (isSolving) {
                     stopSolving();
+                }
             }
         } else {
             document.getElementById('message').textContent = 'Invalid move!';
@@ -161,9 +162,7 @@ function solveGame() {
     
     fetch('/solve', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             poles: gameState.poles,
             num_disks: gameState.numDisks
@@ -190,7 +189,7 @@ function animateSolution(solution) {
     const [fromPole, toPole] = solution[0];
     moveDisk(fromPole, toPole);
     
-    setTimeout(() => {
+    solutionTimeout = setTimeout(() => {
         animateSolution(solution.slice(1));
     }, 1000);
 }

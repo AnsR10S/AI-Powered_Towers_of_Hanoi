@@ -10,8 +10,8 @@ class DataGenerator:
         
     def generate_move_data(self, num_samples):
         """Generate data without depending on HanoiSolver"""
-        X = []
-        y = []
+        X = [] # stores game states
+        y = [] # stores encoded moves
         game = HanoiGame(self.num_disks)
         
         # Implement your own move generation logic here
