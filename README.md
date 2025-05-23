@@ -1,7 +1,5 @@
 # Towers of Hanoi with AI Solver
 
-*(placeholder - add your own screenshot)*
-
 A Python implementation of the classic Towers of Hanoi puzzle with:
 - Interactive web interface (Flask)
 - AI solver using neural networks
