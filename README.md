@@ -54,7 +54,7 @@ A Python implementation of the classic Towers of Hanoi puzzle with:
 Start the Flask development server:
 ```bash
 cd towers_of_hanoi
-python main.py
+python app.py
 ```
 
 Then open your browser to:
